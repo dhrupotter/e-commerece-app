@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  margin: none;
+  padding: 15px 25px;
+}
+
+h1 {
+  margin: 0px;
+  color: var(--primary-color);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+}
+
+.nav-tab {
+  margin: 0px 5px;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.nav-tab:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.nav-tab:active {
+  font-weight: bold;
+}
