@@ -1,34 +1,17 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 import "./ProductList.css";
+import { Link, useParams } from "react-router-dom";
+import { useProducts } from "../../contexts/products.context";
 
 export const ProductList = () => {
-  const [allProducts, setAllProducts] = useState([]);
+  const { productId } = useParams();
+  const { allProducts } = useProducts();
   const [inStockToggle, setInStockToggle] = useState(false);
-  const [cupsToggle, setCupsToggle] = useState(false);
-  const [platesToggle, setPlatesToggle] = useState(false);
-
-  const getAllProducts = async () => {
-    try {
-      const res = await axios.get("/api/products");
-      setAllProducts(res.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleInStockToggle = (e) => {
     setInStockToggle(e.target.checked);
-    // console.log(inStockToggle);
-  };
-
-  const handleCupsToggle = (e) => {
-    setCupsToggle(e.target.value);
-  };
-
-  const handlePlatesToggle = (e) => {
-    setPlatesToggle(e.target.value);
   };
 
   const getInStockProducts = (products, inStockToggle) => {
@@ -38,31 +21,35 @@ export const ProductList = () => {
     return products;
   };
 
-  const getFilteredCategoryProducts = (products, cupsToggle) => {
-    switch (category) {
-      case cupsToggle:
-        return products.filter(
-          (product) => product.category.toLowerCase() === "cups"
-        );
-        break;
-
-      case platesToggle:
-        return products.filter(
-          (product) => product.category.toLowerCase() === "plates"
-        );
-        break;
-
-      default:
-        break;
+  const handleCategoriesChange = (e, category) => {
+    if (e.target.checked) {
+      setSelectedCategories([...selectedCategories, category]);
+    } else {
+      setSelectedCategories(
+        selectedCategories.filter((categoryName) => categoryName !== category)
+      );
     }
   };
 
-  const filteredProducts = () => {};
+  const getSelectedCategoryProducts = (products, categories) => {
+    if (categories.length !== 0) {
+      return products.filter((product) =>
+        categories.includes(product.category.toLowerCase())
+      );
+    }
+    return products;
+  };
 
-  useEffect(() => {
-    getAllProducts();
-  }, []);
-  // console.log(allProducts);
+  const inStockProducts = getInStockProducts(allProducts, inStockToggle);
+
+  const selectedCategoryProducts = getSelectedCategoryProducts(
+    inStockProducts,
+    selectedCategories
+  );
+
+  const handleAddProductToCart = () => {};
+
+  const handleAddProductToWishlist = () => {};
 
   return (
     <div>
@@ -78,16 +65,16 @@ export const ProductList = () => {
           <li className="category-checkbox">
             <input
               type="checkbox"
-              onChange={handleCupsToggle}
-              value={abstractToggle}
+              onChange={(e) => handleCategoriesChange(e, "cups")}
+              checked={selectedCategories.includes("cups")}
             />
             Cups
           </li>
           <li className="category-checkbox">
             <input
               type="checkbox"
-              onChange={handlePortraitToggle}
-              value={portraitToggle}
+              onChange={(e) => handleCategoriesChange(e, "plates")}
+              checked={selectedCategories.includes("plates")}
             />
             Plates
           </li>
@@ -95,16 +82,22 @@ export const ProductList = () => {
       </div>
       <section className="product-list-section">
         <ul className="product-list">
-          {filteredProducts.map((product) => (
+          {selectedCategoryProducts.map((product) => (
             <div className="product-card">
               <li key={product.id}>
-                <img
-                  src={product.img}
-                  atl={product.name}
-                  className="product-img"
-                ></img>
+                <Link key={product.id} to={`/products/${product.id}`}>
+                  <img
+                    src={product.img}
+                    atl={product.name}
+                    className="product-img"
+                  ></img>{" "}
+                </Link>
                 <p className="product-name">{product.name}</p>
                 <p className="product-price">{product.price}$</p>
+                <button onClick={handleAddProductToCart}>Wishlist</button>
+                <button onClick={handleAddProductToWishlist}>
+                  Add to Cart
+                </button>
               </li>
             </div>
           ))}

@@ -1,0 +1,9 @@
+.product-details-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-img {
+  width: 20%;
+  padding: 20px;
+}

@@ -7,39 +7,39 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    id: uuid(),
+    id: 1,
     name: "Acrylic Paint",
     price: 10,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
-    category: "Paint",
+    category: "Cups",
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 2,
     name: "Oil Paint",
     price: 15,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
-    category: "Paint",
+    category: "Plates",
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 3,
     name: "Watercolor Paint",
     price: 7,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
-    category: "Paint",
+    category: "Plates",
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 4,
     name: "Pastels",
     price: 13,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
-    category: "Drawing",
+    category: "Cups",
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 5,
     name: "Colored Pencils",
     price: 9,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -47,7 +47,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 6,
     name: "Graphite Pencils",
     price: 5,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -55,7 +55,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 7,
     name: "Charcoal",
     price: 8,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -63,7 +63,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 8,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -71,7 +71,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 9,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -79,7 +79,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 10,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -87,7 +87,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 11,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -95,7 +95,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 12,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -103,7 +103,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 13,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -111,7 +111,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 14,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -119,7 +119,7 @@ export const products = [
     inStock: false,
   },
   {
-    id: uuid(),
+    id: 15,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -127,7 +127,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 16,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -135,7 +135,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 17,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -143,7 +143,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 18,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -151,7 +151,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 19,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -159,7 +159,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 20,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -167,7 +167,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 21,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -175,7 +175,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 22,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -183,7 +183,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 23,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -191,7 +191,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 24,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -199,7 +199,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 25,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -207,7 +207,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 26,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -215,7 +215,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 27,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -223,7 +223,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 28,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -231,7 +231,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 29,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
@@ -239,7 +239,7 @@ export const products = [
     inStock: true,
   },
   {
-    id: uuid(),
+    id: 30,
     name: "Ink",
     price: 11,
     img: "https://i.etsystatic.com/42564550/r/il/22642b/4898669438/il_794xN.4898669438_mh99.jpg",
