@@ -1,9 +1,26 @@
 .product-details-section {
   display: flex;
-  flex-direction: row;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 20px;
 }
 
-.product-img {
-  width: 20%;
-  padding: 20px;
+.product-details-img {
+  border-radius: 5px;
+  margin: 10px;
+  width: 500px;
+  height: 500px;
+}
+
+.product-description {
+  text-align: left;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.product-description h3 {
+  color: var(--secondary-color);
 }

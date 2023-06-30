@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import React from "react";
 
+import "./ProductDetails.css";
 import { useProducts } from "../../contexts/products.context";
 
 const ProductDetails = () => {
@@ -11,17 +12,17 @@ const ProductDetails = () => {
   console.log(productId);
   return (
     <div className="product-details-section">
-      <div>
+      <section>
         <img
-          className="product-img"
+          className="product-details-img"
           src={singleProduct.img}
           alt={singleProduct.name}
         ></img>
-      </div>
-      <div>
+      </section>
+      <section className="product-description">
         <h1>{singleProduct.name}</h1>
-        <h3>{singleProduct.price}$</h3>
-      </div>
+        <h3>₹{singleProduct.price}</h3>
+      </section>
     </div>
   );
 };

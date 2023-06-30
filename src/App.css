@@ -12,3 +12,11 @@
   --text-tertiary-color: #c8cdd6;
   --background-color: #eeeeee;
 }
+
+:link {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}

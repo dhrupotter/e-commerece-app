@@ -7,6 +7,10 @@
   padding: 15px 25px;
 }
 
+img {
+  width: 30px;
+}
+
 h1 {
   margin: 0px;
   color: var(--primary-color);

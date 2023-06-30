@@ -22,10 +22,6 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 3rem 0rem;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 2rem;
-  grid-column-gap: 2rem; */
   list-style: none;
   padding: 20px;
 }
@@ -44,6 +40,9 @@
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--background-color);
   padding: 5px;
   border-radius: 5px;
@@ -64,4 +63,6 @@
   border-radius: 5px;
   margin: 10px;
   width: 280px;
+  height: 280px;
+  object-fit: cover;
 }

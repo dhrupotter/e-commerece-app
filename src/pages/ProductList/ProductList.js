@@ -4,6 +4,8 @@ import "./ProductList.css";
 import { Link, useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/products.context";
 
+import wishListLogo from "../../assets/wishlist-logo.png";
+
 export const ProductList = () => {
   const { productId } = useParams();
   const { allProducts } = useProducts();
@@ -65,8 +67,8 @@ export const ProductList = () => {
           <li className="category-checkbox">
             <input
               type="checkbox"
-              onChange={(e) => handleCategoriesChange(e, "cups")}
-              checked={selectedCategories.includes("cups")}
+              onChange={(e) => handleCategoriesChange(e, "mugs")}
+              checked={selectedCategories.includes("mugs")}
             />
             Cups
           </li>
@@ -86,18 +88,30 @@ export const ProductList = () => {
             <div className="product-card">
               <li key={product.id}>
                 <Link key={product.id} to={`/products/${product.id}`}>
-                  <img
-                    src={product.img}
-                    atl={product.name}
-                    className="product-img"
-                  ></img>{" "}
+                  <div className="product-img-container">
+                    <img
+                      src={product.img}
+                      atl={product.name}
+                      className="product-img"
+                    ></img>
+                  </div>
                 </Link>
-                <p className="product-name">{product.name}</p>
-                <p className="product-price">{product.price}$</p>
-                <button onClick={handleAddProductToCart}>Wishlist</button>
-                <button onClick={handleAddProductToWishlist}>
-                  Add to Cart
-                </button>
+                <div className="product-card-details">
+                  <p className="product-name">{product.name}</p>
+                  <p className="product-price">₹{product.price}</p>
+                  <button
+                    className="wishlist-btn"
+                    onClick={handleAddProductToCart}
+                  >
+                    wishlist
+                  </button>
+                  <button
+                    className="cart-btn"
+                    onClick={handleAddProductToWishlist}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </li>
             </div>
           ))}
