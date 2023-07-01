@@ -1,13 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth.context";
+import "../Login/Login.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import Signup from "../Signup/Signup";
 
 const Login = () => {
   const { setUser } = useAuth();
+  const navigate = useNavigate();
   const [loginDetails, setSignupDetails] = useState({
     email: "",
     password: "",
   });
+
+  const guestUser = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshbalika",
+  };
 
   const handleLoginDetails = (e) => {
     setSignupDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,11 +33,28 @@ const Login = () => {
     }
   };
 
+  const handleSignUp = () => {
+    navigate("/signup");
+  };
+
+  const handleLoginAsGuest = async () => {
+    try {
+      const result = await axios.post("/api/auth/login", guestUser);
+      console.log(result);
+      setUser({
+        user: result.data.foundUser,
+        token: result.data.encodedToken,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
-      <div>
-        <div>
-          E-mail:
+      <div className="login-card">
+        <div className="login-field">
+          <label>E-mail:</label>
           <input
             name="email"
             onChange={handleLoginDetails}
@@ -36,8 +62,8 @@ const Login = () => {
             placeholder="Enter e-mail"
           />
         </div>
-        <div>
-          Password:
+        <div className="login-field">
+          <label>Password:</label>
           <input
             type="password"
             name="password"
@@ -46,7 +72,17 @@ const Login = () => {
             placeholder="Enter password"
           />
         </div>
-        <button onClick={handleSubmit}>Login</button>
+        <div className="login-btn-container">
+          <button className="login-btn" onClick={handleSubmit}>
+            Login
+          </button>
+          <button className="login-btn" onClick={handleLoginAsGuest}>
+            Login as Guest
+          </button>
+        </div>
+        <div>
+          Not a user? <button onClick={handleSignUp}>Sign Up</button>
+        </div>
       </div>
     </>
   );

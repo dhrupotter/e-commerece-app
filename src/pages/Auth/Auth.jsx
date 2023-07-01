@@ -6,8 +6,12 @@ const Auth = () => {
   const [mode, setMode] = useState("LOGIN");
   return (
     <div>
-      {mode === "LOGIN" ? <Login /> : <Signup />}
       {mode === "LOGIN" ? (
+        <Login setMode={setMode} />
+      ) : (
+        <Signup setMode={setMode} />
+      )}
+      {/* {mode === "LOGIN" ? (
         <>
           Not already a User?{" "}
           <button onClick={() => setMode("SIGNUP")}>Signup</button>
@@ -17,7 +21,7 @@ const Auth = () => {
           Already a User?{" "}
           <button onClick={() => setMode("LOGIN")}>Login</button>
         </>
-      )}
+      )} */}
     </div>
   );
 };

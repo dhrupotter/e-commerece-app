@@ -1,15 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { getAllProductsService } from "../services/products.service";
 
 const ProductsContext = createContext([]);
 
 export const ProductsProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
-  const [singleProduct, setSingleProduct] = useState({});
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("/api/products");
+      const res = await getAllProductsService();
       setAllProducts(res.data.products);
     } catch (error) {
       console.log(error);
@@ -18,6 +18,7 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     getAllProducts();
+    console.log("hi");
   }, []);
 
   return (

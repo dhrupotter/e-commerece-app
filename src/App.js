@@ -7,6 +7,7 @@ import { Home } from "./pages/Home/Home";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import { ProductList } from "./pages/ProductList/ProductList";
 import { Routes, Route } from "react-router-dom";
+import Wishlist from "./pages/Wishlist/Wishlist";
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" exact element={<Auth />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   );

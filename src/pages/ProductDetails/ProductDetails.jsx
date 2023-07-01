@@ -7,7 +7,8 @@ import { useProducts } from "../../contexts/products.context";
 const ProductDetails = () => {
   const { productId } = useParams();
   const { allProducts } = useProducts();
-  const singleProduct = allProducts.find((product) => product.id === productId);
+  const singleProduct = allProducts.find((product) => product._id === productId);
+  console.log(allProducts);
   console.log(singleProduct);
   console.log(productId);
   return (

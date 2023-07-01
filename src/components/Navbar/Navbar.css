@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Amita&family=Atma:wght@500&family=Boogaloo&family=Great+Vibes&family=Lobster&family=Merienda&family=Roboto&display=swap");
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -14,6 +15,23 @@ img {
 h1 {
   margin: 0px;
   color: var(--primary-color);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo img {
+  fill: var(--primary-color);
+  width: 50px;
+  object-fit: cover;
+}
+
+.brand-logo h1 {
+  font-family: "Atma", cursive;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .nav-list {
