@@ -6,7 +6,6 @@ const createAuth = createContext(DEFAULT_USER);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(DEFAULT_USER);
-  console.log(user);
 
   return (
     <createAuth.Provider value={{ user, setUser }}>

@@ -1,8 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth.context";
+import { useNavigate } from "react-router-dom";
+
+import "../Signup/Signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const { user, setUser } = useAuth();
   const [signupDetails, setSignupDetails] = useState({
     firstName: "",
@@ -19,7 +23,6 @@ const Signup = () => {
     console.log(signupDetails);
     try {
       const result = await axios.post("/api/auth/signup", signupDetails);
-      console.log(result);
       setUser({
         user: result.data.createdUser,
         token: result.data.encodedToken,
@@ -29,13 +32,15 @@ const Signup = () => {
     }
   };
 
-  console.log(user);
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <>
-      <div>
-        <div>
-          First Name:
+      <div className="signup-card ">
+        <div className="signup-field">
+          <label>First Name:</label>
           <input
             name="firstName"
             onChange={handleSignupDetails}
@@ -43,8 +48,8 @@ const Signup = () => {
             placeholder="Enter first name"
           />
         </div>
-        <div>
-          Last Name:
+        <div className="signup-field">
+          <label>Last Name:</label>
           <input
             name="lastName"
             onChange={handleSignupDetails}
@@ -52,8 +57,8 @@ const Signup = () => {
             placeholder="Enter last name"
           />
         </div>
-        <div>
-          E-mail:
+        <div className="signup-field">
+          <label>E-mail:</label>
           <input
             name="email"
             onChange={handleSignupDetails}
@@ -61,8 +66,8 @@ const Signup = () => {
             placeholder="Enter e-mail"
           />
         </div>
-        <div>
-          Password:
+        <div className="signup-field">
+          <label>Password:</label>
           <input
             type="password"
             name="password"
@@ -71,7 +76,14 @@ const Signup = () => {
             placeholder="Enter password"
           />
         </div>
-        <button onClick={handleSubmit}>Sign Up</button>
+        <div className="signup-btn-container">
+          <button className="signup-btn" onClick={handleSubmit}>
+            Sign Up
+          </button>
+        </div>
+        <div className="alt-section">
+          Already a user? <button onClick={handleLogin}>Login</button>
+        </div>
       </div>
     </>
   );

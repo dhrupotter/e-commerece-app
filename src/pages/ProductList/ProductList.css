@@ -46,15 +46,12 @@
   background-color: var(--background-color);
   padding: 5px;
   border-radius: 5px;
-  /* border: 1px solid var(--secondary-color); */
   width: 300px;
   position: relative;
   cursor: pointer;
-  /* transition: border 0.5s linear; */
 }
 
 .product-card:hover {
-  /* border: 1px solid transparent; */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
 }

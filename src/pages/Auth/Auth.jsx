@@ -1,29 +1,13 @@
-import React, { useState } from "react";
-import Login from "../../components/Login/Login";
-import Signup from "../../components/Signup/Signup";
+import { useAuth } from "../../contexts/auth.context";
+import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
-const Auth = () => {
-  const [mode, setMode] = useState("LOGIN");
-  return (
-    <div>
-      {mode === "LOGIN" ? (
-        <Login setMode={setMode} />
-      ) : (
-        <Signup setMode={setMode} />
-      )}
-      {/* {mode === "LOGIN" ? (
-        <>
-          Not already a User?{" "}
-          <button onClick={() => setMode("SIGNUP")}>Signup</button>
-        </>
-      ) : (
-        <>
-          Already a User?{" "}
-          <button onClick={() => setMode("LOGIN")}>Login</button>
-        </>
-      )} */}
-    </div>
+export const RequiresAuth = ({ children }) => {
+  const { user } = useAuth();
+  const location = useLocation();
+  return user.token ? (
+    children
+  ) : (
+    <Navigate to="/login" state={{ from: location }} />
   );
 };
-
-export default Auth;

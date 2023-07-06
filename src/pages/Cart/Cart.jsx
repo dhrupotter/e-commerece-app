@@ -2,15 +2,18 @@ import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/auth.context";
 import { getCartProductsService } from "../../services/cart.service";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { removeProductFromCart } from "../../utils/cart.utils";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const { user, setUser } = useAuth();
+  const encodedToken = { headers: { authorization: user?.token } };
 
   const getCartProducts = async () => {
     try {
       const res = await getCartProductsService(user.token);
-      console.log(res);
       setUser((prev) => ({
         ...prev,
         user: { ...prev.user, cart: res.data.cart },
@@ -21,34 +24,26 @@ const Cart = () => {
   };
 
   const handleRemoveFromCart = async (productId) => {
-    console.log(productId);
     try {
-      const config = {
-        headers: {
-          authorization: user.token,
-        },
-      };
-      const res = await axios.delete(`/api/user/cart/${productId}`, config);
+      const res = await removeProductFromCart(productId, encodedToken);
       setUser((prev) => ({
         ...prev,
         user: { ...prev.user, cart: res.data.cart },
       }));
+      toast.success("Item removed from cart");
     } catch (error) {
       console.error(error);
     }
   };
+  const cart = user.user.cart;
 
   useEffect(() => {
     getCartProducts();
   }, []);
 
-  console.log(user);
-
-  const cart = user.user.cart;
-
   return (
     <div>
-      Your Cart
+      <h2>Total Cart Items ({cart.length})</h2>
       <div>
         {cart.map((product) => (
           <div className="product-card">
@@ -65,7 +60,7 @@ const Cart = () => {
               <div className="product-card-details">
                 <p className="product-name">{product.name}</p>
                 <p className="product-price">₹{product.price}</p>
-                <p className="product-name">{product.name}</p>
+                <p className="product-name">{product.desription}</p>
 
                 <button
                   className="cart-btn"

@@ -9,7 +9,6 @@ import logo from "../../assets/brand-logo.png";
 
 export const Navbar = () => {
   const { user } = useAuth();
-  console.log(user.user, user.token);
   return (
     <nav className="navbar">
       <div className="brand-logo">
@@ -29,7 +28,10 @@ export const Navbar = () => {
             <NavLink to={"/products"}>Explore</NavLink>
           </li>
           <li className="nav-tab">
-            <NavLink to={"/auth"}>Login/Sign-Up</NavLink>
+            <NavLink to={"/login"}>Login</NavLink>
+          </li>
+          <li className="nav-tab">
+            <NavLink to={"/signup"}>Sign Up</NavLink>
           </li>
         </ul>
       ) : (

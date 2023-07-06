@@ -1,18 +1,33 @@
 import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import "./ProductList.css";
-import { Link } from "react-router-dom";
 import { useProducts } from "../../contexts/products.context";
+import { useAuth } from "../../contexts/auth.context";
 
 import wishListLogo from "../../assets/wishlist-logo.png";
-import { useAuth } from "../../contexts/auth.context";
-import axios from "axios";
+import {
+  addProductToCart,
+  addProductToWishlist,
+  getIsProductInCart,
+  getIsProductInWishlist,
+  removeProductFromWishlist,
+  removeProductFromCart,
+} from "../../utils/cart.utils";
 
 export const ProductList = () => {
+  const navigate = useNavigate();
   const { allProducts } = useProducts();
   const { user, setUser } = useAuth();
+
   const [inStockToggle, setInStockToggle] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const isLogged = user?.token?.length > 0;
+  const encodedToken = { headers: { authorization: user?.token } };
+  const cart = user?.user?.cart;
+  const wishlist = user?.user?.wishlist;
 
   const handleInStockToggle = (e) => {
     setInStockToggle(e.target.checked);
@@ -51,62 +66,47 @@ export const ProductList = () => {
     selectedCategories
   );
 
-  const config = {
-    headers: {
-      authorization: user.token,
-    },
+  const handleAddProductToWishlist = async (product) => {
+    if (isLogged) {
+      if (getIsProductInWishlist(wishlist, product?._id)) {
+        const res = await removeProductFromWishlist(product._id, encodedToken);
+        setUser((prev) => ({
+          ...prev,
+          user: { ...prev.user, wishlist: res.data.wishlist },
+        }));
+        toast.success("Item removed from Wishlsit");
+      } else {
+        const res = await addProductToWishlist(product, encodedToken);
+        setUser((prev) => ({
+          ...prev,
+          user: { ...prev.user, wishlist: res.data.wishlist },
+        }));
+        toast.success("Item added to Wishlist");
+      }
+    } else {
+      navigate("/login");
+    }
   };
 
   const handleAddProductToCart = async (product) => {
-    try {
-      const res = await axios.post("/api/user/cart", { product }, config);
-      setUser((prev) => ({
-        ...prev,
-        user: { ...prev.user, cart: res.data.cart },
-      }));
-    } catch (err) {
-      console.log(err);
+    if (isLogged) {
+      if (getIsProductInCart(cart, product?._id)) {
+        navigate("/cart");
+      } else {
+        const res = await addProductToCart(product, encodedToken);
+        setUser((prev) => ({
+          ...prev,
+          user: { ...prev.user, cart: res.data.cart },
+        }));
+
+        toast.success("Item added to Cart");
+      }
+    } else {
+      toast.error("Please login to continue");
+      navigate("/login");
     }
   };
-
-  const handleAddProductToWishlist = async (product) => {
-    try {
-      const res = await axios.post("/api/user/wishlist", { product }, config);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getIsProductInCart = (productId) => {
-    const res = user.user.cart.find((product) => product._id === productId);
-    return res ? true : false;
-  };
-
-  const getIsProductInWishlist = (productId) => {
-    const res = user.user.wishlist.find((product) => product._id === productId);
-    return res ? true : false;
-  };
-
-  console.log(user.user.cart);
-
-  const handleRemoveFromCart = async (productId) => {
-    console.log(productId);
-    try {
-      const config = {
-        headers: {
-          authorization: user.token,
-        },
-      };
-      const res = await axios.delete(`/api/user/cart/${productId}`, config);
-      setUser((prev) => ({
-        ...prev,
-        user: { ...prev.user, cart: res.data.cart },
-      }));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  console.log(user);
 
   return (
     <div>
@@ -194,37 +194,25 @@ export const ProductList = () => {
                 <div className="product-card-details">
                   <p className="product-name">{product.name}</p>
                   <p className="product-price">₹{product.price}</p>
-                  {!getIsProductInWishlist(product._id) ? (
+                  <div>
                     <button
                       className="cart-btn"
                       onClick={() => handleAddProductToWishlist(product)}
                     >
-                      Add to Cart
+                      {getIsProductInWishlist(wishlist, product?._id)
+                        ? "Remove from Wishlist"
+                        : "Add to Wishlist"}
                     </button>
-                  ) : (
-                    <button
-                      className="cart-btn"
-                      onClick={() => handleRemoveFromWishlist(product._id)}
-                    >
-                      Remove from Cart
-                    </button>
-                  )}
 
-                  {!getIsProductInCart(product._id) ? (
                     <button
                       className="cart-btn"
                       onClick={() => handleAddProductToCart(product)}
                     >
-                      Add to Cart
+                      {getIsProductInCart(cart, product._id)
+                        ? "Show Cart"
+                        : "Add to Cart"}
                     </button>
-                  ) : (
-                    <button
-                      className="cart-btn"
-                      onClick={() => handleRemoveFromCart(product._id)}
-                    >
-                      Remove from Cart
-                    </button>
-                  )}
+                  </div>
                 </div>
               </li>
             </div>

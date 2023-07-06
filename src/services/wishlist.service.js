@@ -5,6 +5,5 @@ export const getWishlistProductsService = async (encodedToken) => {
     headers: { authorization: encodedToken },
   };
   const res = await axios.get("/api/user/wishlist", config);
-  console.log(res);
   return res;
 };

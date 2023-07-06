@@ -18,7 +18,6 @@ export const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     getAllProducts();
-    console.log("hi");
   }, []);
 
   return (
