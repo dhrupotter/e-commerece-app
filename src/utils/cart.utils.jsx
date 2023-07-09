@@ -11,6 +11,24 @@ const addProductToCart = async (product, encodedToken) => {
   }
 };
 
+const addProductQuantity = async (productId, actionType, encodedToken) => {
+  try {
+    const res = await axios.post(
+      `/api/user/cart/${productId}`,
+      {
+        action: {
+          type: `${actionType}`,
+        },
+      },
+      encodedToken
+    );
+    console.log(res);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const addProductToWishlist = async (product, encodedToken) => {
   try {
     const res = await axios.post(
@@ -57,6 +75,7 @@ const removeProductFromCart = async (productId, encodedToken) => {
 
 export {
   addProductToCart,
+  addProductQuantity,
   addProductToWishlist,
   getIsProductInCart,
   getIsProductInWishlist,

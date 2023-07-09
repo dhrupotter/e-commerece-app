@@ -110,6 +110,7 @@ export const ProductList = () => {
 
   return (
     <div>
+      <h2>Showing Items ({selectedCategoryProducts.length})</h2>
       <div className="sidebar-section">
         <input
           type="checkbox"

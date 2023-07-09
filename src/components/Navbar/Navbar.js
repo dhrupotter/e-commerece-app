@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../contexts/auth.context";
 import "../Navbar/Navbar.css";
@@ -8,12 +8,13 @@ import cartLogo from "../../assets/cart-logo.png";
 import logo from "../../assets/brand-logo.png";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   return (
     <nav className="navbar">
       <div className="brand-logo">
         <img src={logo}></img>
-        <h1>MessyHands</h1>
+        <h1 onClick={() => navigate("/home")}>MessyHands</h1>
       </div>
 
       {user.user !== null ? (
@@ -24,33 +25,41 @@ export const Navbar = () => {
 
       {user.user === null ? (
         <ul className="nav-list">
-          <li className="nav-tab ">
-            <NavLink to={"/products"}>Explore</NavLink>
+          <li>
+            <NavLink to={"/products"} className="nav-tab">
+              Explore
+            </NavLink>
           </li>
-          <li className="nav-tab">
-            <NavLink to={"/login"}>Login</NavLink>
+          <li>
+            <NavLink to={"/login"} className="nav-tab">
+              Login
+            </NavLink>
           </li>
-          <li className="nav-tab">
-            <NavLink to={"/signup"}>Sign Up</NavLink>
+          <li>
+            <NavLink to={"/signup"} className="nav-tab">
+              Sign Up
+            </NavLink>
           </li>
         </ul>
       ) : (
         <ul className="nav-list">
-          <li className="nav-tab ">
-            <NavLink to={"/products"}>Explore</NavLink>
-          </li>
-          <li className="nav-tab ">
-            <NavLink to={"/"}>
-              <img src={homeLogo}></img>
+          <li>
+            <NavLink to={"/products"} className="nav-tab ">
+              Explore
             </NavLink>
           </li>
-          <li className="nav-tab">
-            <NavLink to={"/wishlist"}>
+          <li>
+            <NavLink to={"/"}>
+              <img src={homeLogo} className="nav-tab "></img>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/wishlist"} className="nav-tab">
               <img src={wishListLogo}></img>
             </NavLink>
           </li>
-          <li className="nav-tab">
-            <NavLink to={"/cart"}>
+          <li>
+            <NavLink to={"/cart"} className="nav-tab">
               <img src={cartLogo}></img>
             </NavLink>
           </li>
