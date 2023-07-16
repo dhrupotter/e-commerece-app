@@ -96,7 +96,6 @@ const Cart = () => {
           cart: res.data.cart,
         },
       }));
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -107,14 +106,12 @@ const Cart = () => {
   };
 
   const cart = user.user.cart;
-  console.log(cart);
 
   const cartItemPrices = cart.map((item) => item.price * item.qty);
   const totalDiscount = cart.reduce((acc, curr) => acc + curr.qty * 50, 0);
   const totalPrice = cartItemPrices.reduce((acc, curr) => acc + curr, 0);
   const shippingCharges = totalPrice - totalDiscount < 999 ? 50 : 0;
   const totalBillAmount = totalPrice - totalDiscount + shippingCharges;
-  console.log(totalDiscount, shippingCharges, totalBillAmount);
 
   useEffect(() => {
     getCartProducts();

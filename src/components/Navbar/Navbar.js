@@ -52,9 +52,9 @@ export const Navbar = () => {
       ) : (
         <ul className="nav-list">
           <li>
-            <NavLink to={"/products"} className="nav-tab ">
+            {/* <NavLink to={"/products"} className="nav-tab ">
               Explore
-            </NavLink>
+            </NavLink> */}
           </li>
           <li>
             <NavLink to={"/"} className="nav-tab">

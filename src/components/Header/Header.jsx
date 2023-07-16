@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 
 import { imageData } from "./carousel";
 import "../Header/Header.css";
+import { useNavigate } from "react-router-dom";
 
 const renderSlides = imageData.map((image) => (
   <div key={image.alt} className="carousel-img-container">
@@ -13,6 +14,7 @@ const renderSlides = imageData.map((image) => (
 ));
 
 const Header = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState();
 
   function handleChange(index) {
@@ -34,6 +36,7 @@ const Header = () => {
       </Carousel>
       <div className="header-section-text-background">
         <div className="header-section-text">
+          <h1>Embrace the imperfections.</h1>
           <p>
             "Our carefully curated collection offers an array of stunning pieces
             crafted by talented artisans. Discover the joy of collecting and
@@ -41,8 +44,7 @@ const Header = () => {
             start creating!"
           </p>
         </div>
-
-        <button>Shop Now</button>
+        <button onClick={() => navigate("/products")}>Shop Now</button>
       </div>
     </div>
   );

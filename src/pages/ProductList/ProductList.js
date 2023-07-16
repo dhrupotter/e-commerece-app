@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "./ProductList.css";
@@ -17,12 +17,19 @@ import {
 } from "../../utils/cart.utils";
 
 export const ProductList = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { allProducts } = useProducts();
   const { user, setUser } = useAuth();
 
+  const defaultSelectedCategories = searchParams.get("category")
+    ? [searchParams.get("category")]
+    : [];
+
   const [inStockToggle, setInStockToggle] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState(
+    defaultSelectedCategories
+  );
 
   const isLogged = user?.token?.length > 0;
   const encodedToken = { headers: { authorization: user?.token } };
@@ -106,7 +113,6 @@ export const ProductList = () => {
       navigate("/login");
     }
   };
-  console.log(user);
 
   return (
     <div>
