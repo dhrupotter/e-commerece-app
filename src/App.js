@@ -9,6 +9,7 @@ import { ProductList } from "./pages/ProductList/ProductList";
 import { Routes, Route } from "react-router-dom";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Login from "./components/Login/Login";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -36,6 +37,14 @@ function App() {
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <Checkout />
+            </RequiresAuth>
+          }
+        />
       </Routes>
     </div>
   );

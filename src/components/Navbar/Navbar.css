@@ -46,17 +46,54 @@ h1 {
   height: fit-content;
 }
 
+.nav-tab-text {
+  margin: 0px 5px;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--primary-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
 .nav-tab {
   margin: 0px 5px;
-  font-size: 20px;
-  font-weight: bold;
-
+  font-size: 30px;
   color: var(--primary-color);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-tab .nav-btn-qty {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+  color: white;
+  width: 15px;
+  height: 14px;
+  text-align: center;
+  font-size: 10px;
+  padding: 3px;
+  line-height: 1;
+}
+.nav-tab:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
   border: 1px solid transparent;
 }
 
-.nav-tab:hover {
+.nav-tab-text:hover {
   color: var(--secondary-color);
+  font-weight: bold;
   cursor: pointer;
   border: 1px solid transparent;
 }

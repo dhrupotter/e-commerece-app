@@ -15,6 +15,11 @@ export const products = [
     img: "https://i.etsystatic.com/39030409/r/il/f003dd/4948091934/il_794xN.4948091934_cr65.jpg",
     category: "Mugs",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "2",
@@ -25,6 +30,11 @@ export const products = [
     img: "https://i.etsystatic.com/35626667/r/il/50de7d/4656981032/il_794xN.4656981032_4fkq.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "3",
@@ -35,6 +45,11 @@ export const products = [
     img: "https://i.etsystatic.com/37630770/r/il/9307da/4885901652/il_794xN.4885901652_oojj.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "4",
@@ -45,6 +60,11 @@ export const products = [
     img: "https://i.etsystatic.com/38020402/r/il/772e9c/4952372026/il_794xN.4952372026_pvwa.jpg",
     category: "Mugs",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "5",
@@ -55,6 +75,11 @@ export const products = [
     img: "https://i.etsystatic.com/11273377/r/il/7b99f0/4681304382/il_794xN.4681304382_s2tw.jpg",
     category: "Jwellery organizer",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "6",
@@ -65,6 +90,11 @@ export const products = [
     img: "https://i.etsystatic.com/23954207/r/il/1d20bf/3900291497/il_794xN.3900291497_blru.jpg",
     category: "Mugs",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "7",
@@ -75,6 +105,11 @@ export const products = [
     img: "https://i.etsystatic.com/40868832/r/il/c13365/4703126555/il_794xN.4703126555_ntlz.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "8",
@@ -85,6 +120,11 @@ export const products = [
     img: "https://i.etsystatic.com/22104454/r/il/85f719/4944606865/il_794xN.4944606865_e75t.jpg",
     category: "Mugs",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "9",
@@ -95,6 +135,11 @@ export const products = [
     img: "https://i.etsystatic.com/41583296/r/il/e13d0b/4928635917/il_794xN.4928635917_2c3q.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "10",
@@ -105,6 +150,11 @@ export const products = [
     img: "https://i.etsystatic.com/11273377/r/il/92b869/4650094156/il_794xN.4650094156_r526.jpg",
     category: "Jwellery organizer",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "11",
@@ -115,6 +165,11 @@ export const products = [
     img: "https://i.etsystatic.com/39348624/r/il/d3e47f/4817323776/il_794xN.4817323776_9eza.jpg",
     category: "Mugs",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "12",
@@ -125,6 +180,11 @@ export const products = [
     img: "https://i.etsystatic.com/29841120/r/il/018fda/4902905368/il_794xN.4902905368_erkv.jpg",
     category: "Planters",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "13",
@@ -135,6 +195,11 @@ export const products = [
     img: "https://i.etsystatic.com/34234980/r/il/8e24b5/5052579873/il_794xN.5052579873_1oxt.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "14",
@@ -145,6 +210,11 @@ export const products = [
     img: "https://i.etsystatic.com/37316397/r/il/ecd314/4143694894/il_794xN.4143694894_t7gz.jpg",
     category: "Plates",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "15",
@@ -155,6 +225,11 @@ export const products = [
     img: "https://i.etsystatic.com/39030409/r/il/40117e/4932723292/il_794xN.4932723292_jnz2.jpg",
     category: "Mugs",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "16",
@@ -165,6 +240,11 @@ export const products = [
     img: "https://i.etsystatic.com/38710199/r/il/5835c8/4365452962/il_794xN.4365452962_jes3.jpg",
     category: "Planters",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "17",
@@ -175,6 +255,11 @@ export const products = [
     img: "https://i.etsystatic.com/31787549/r/il/390bfb/4891584230/il_794xN.4891584230_boql.jpg",
     category: "Lamps",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "18",
@@ -185,6 +270,11 @@ export const products = [
     img: "https://i.etsystatic.com/33832257/r/il/4baabb/3641329255/il_794xN.3641329255_5hf5.jpg",
     category: "Planters",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "19",
@@ -195,6 +285,11 @@ export const products = [
     img: "https://i.etsystatic.com/39973399/r/il/41334b/4924869562/il_794xN.4924869562_cayw.jpg",
     category: "Lamps",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "20",
@@ -205,6 +300,11 @@ export const products = [
     img: "https://i.etsystatic.com/38839234/r/il/d0b7ab/4334464640/il_794xN.4334464640_pk58.jpg",
     category: "Showpieces",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "21",
@@ -215,6 +315,11 @@ export const products = [
     img: "https://i.etsystatic.com/33733122/r/il/11dfe6/4404644622/il_794xN.4404644622_7mwr.jpg",
     category: "Lamps",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "22",
@@ -225,6 +330,11 @@ export const products = [
     img: "https://i.etsystatic.com/22545085/r/il/5ec69f/2428105140/il_794xN.2428105140_2189.jpg",
     category: "Planters",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "23",
@@ -235,6 +345,11 @@ export const products = [
     img: "https://i.etsystatic.com/43620152/r/il/23deae/4999051881/il_794xN.4999051881_hsbg.jpg",
     category: "Lamps",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "24",
@@ -245,6 +360,11 @@ export const products = [
     img: "https://i.etsystatic.com/37537950/r/il/b5b8a2/4946565772/il_794xN.4946565772_kwqw.jpg",
     category: "Showpieces",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
 
   {
@@ -256,6 +376,11 @@ export const products = [
     img: "https://i.etsystatic.com/22545085/r/il/00f6b3/3416187061/il_794xN.3416187061_mczb.jpg",
     category: "Planters",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "26",
@@ -266,6 +391,11 @@ export const products = [
     img: "https://i.etsystatic.com/42752647/r/il/15a02d/4950252065/il_794xN.4950252065_hmmu.jpg",
     category: "Lamps",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "27",
@@ -276,6 +406,11 @@ export const products = [
     img: "https://i.etsystatic.com/36476273/r/il/88cafa/4075407195/il_794xN.4075407195_t7ad.jpg",
     category: "Spoons",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "28",
@@ -286,6 +421,11 @@ export const products = [
     img: "https://i.etsystatic.com/39217545/r/il/25d784/5067868673/il_794xN.5067868673_cqdk.jpg",
     category: "Showpieces",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "29",
@@ -296,6 +436,11 @@ export const products = [
     img: "https://i.etsystatic.com/18663932/r/il/1a47eb/5057815945/il_794xN.5057815945_hewv.jpg",
     category: "Jwellery organizer",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "30",
@@ -306,6 +451,11 @@ export const products = [
     img: "https://i.etsystatic.com/36043738/r/il/abe196/4062147366/il_794xN.4062147366_g3rq.jpg",
     category: "Spoons",
     inStock: false,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "31",
@@ -316,6 +466,11 @@ export const products = [
     img: "https://i.etsystatic.com/43829909/r/il/66373a/5070248725/il_794xN.5070248725_kogf.jpg",
     category: "Spoons",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
 
   {
@@ -327,6 +482,11 @@ export const products = [
     img: "https://i.etsystatic.com/42343357/r/il/9e5eb6/4823812819/il_794xN.4823812819_imzb.jpg",
     category: "Jwellery organizer",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
   {
     _id: "33",
@@ -337,5 +497,10 @@ export const products = [
     img: "https://i.etsystatic.com/36346477/r/il/0a208e/5045318925/il_794xN.5045318925_oa0j.jpg",
     category: "Jwellery organizer",
     inStock: true,
+    bestseller: true,
+    ratings: {
+      rating: "3.5",
+      count: "2345",
+    },
   },
 ];

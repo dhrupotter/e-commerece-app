@@ -1,4 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import {
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineClose,
+} from "react-icons/ai";
+
+import { SlHome, SlHandbag, SlHeart } from "react-icons/sl";
 
 import { useAuth } from "../../contexts/auth.context";
 import "../Navbar/Navbar.css";
@@ -14,7 +22,7 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="brand-logo">
         <img src={logo}></img>
-        <h1 onClick={() => navigate("/home")}>MessyHands</h1>
+        <h1 onClick={() => navigate("/")}>MessyHands</h1>
       </div>
 
       {user.user !== null ? (
@@ -25,19 +33,19 @@ export const Navbar = () => {
 
       {user.user === null ? (
         <ul className="nav-list">
-          <li>
+          {/* <li>
             <NavLink to={"/products"} className="nav-tab">
               Explore
             </NavLink>
-          </li>
+          </li> */}
           <li>
-            <NavLink to={"/login"} className="nav-tab">
+            <NavLink to={"/login"} className="nav-tab-text">
               Login
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/signup"} className="nav-tab">
-              Sign Up
+            <NavLink to={"/signup"} className="nav-tab-text">
+              SignUp
             </NavLink>
           </li>
         </ul>
@@ -49,18 +57,20 @@ export const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/"}>
-              <img src={homeLogo} className="nav-tab "></img>
+            <NavLink to={"/"} className="nav-tab">
+              <SlHome />
             </NavLink>
           </li>
           <li>
             <NavLink to={"/wishlist"} className="nav-tab">
-              <img src={wishListLogo}></img>
+              <SlHeart />
+              <span className="nav-btn-qty">{user.user.wishlist.length}</span>
             </NavLink>
           </li>
           <li>
             <NavLink to={"/cart"} className="nav-tab">
-              <img src={cartLogo}></img>
+              <SlHandbag />
+              <span className="nav-btn-qty">{user.user.cart.length}</span>
             </NavLink>
           </li>
         </ul>
