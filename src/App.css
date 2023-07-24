@@ -24,3 +24,8 @@ li {
 button:hover {
   cursor: pointer;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}

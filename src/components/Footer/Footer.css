@@ -1,0 +1,55 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0rem;
+  margin: 2rem 0rem 0rem 0rem;
+  background-color: var(--primary-color);
+  height: 10rem;
+  color: white;
+}
+
+.policy-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px auto;
+  width: 35%;
+  font-size: 16px;
+  color: white;
+}
+.company-rights {
+  margin: 0px auto;
+  font-size: 16px;
+}
+
+.policy-links a {
+  color: white;
+}
+
+.data-section {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+}
+
+.developer {
+  display: flex;
+  margin: 15px auto;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 550px;
+}
+
+.developer a {
+  color: white;
+  font-weight: bold;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  font-size: 25px;
+}

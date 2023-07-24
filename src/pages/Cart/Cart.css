@@ -11,11 +11,11 @@
 .cart-item-card {
   display: flex;
   flex-direction: row;
+  height: 240px;
   align-items: top;
   padding: 5px;
   border: 1px solid var(--tertiary-color);
   border-radius: 10px;
-
   cursor: pointer;
 }
 
@@ -80,6 +80,9 @@
 }
 
 .cart-item-card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 5px;
   text-align: left;
 }

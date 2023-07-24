@@ -135,26 +135,30 @@ const Cart = () => {
                   </Link>
                 </div>
                 <div className="cart-item-card-details">
-                  <p className="cart-item-name">{product.name}</p>
-                  <p className="cart-item-description">{product.description}</p>
-                  <p className="cart-item-price">
-                    ₹{product.price * product.qty}
-                  </p>
-                  <div className="cart-item-qty">
-                    <button
-                      onClick={(e) => {
-                        if (product?.qty > 1) {
-                          handleReduceQuantity(product);
-                        }
-                      }}
-                      disabled={product?.qty > 1 ? false : true}
-                    >
-                      -
-                    </button>{" "}
-                    {product?.qty}{" "}
-                    <button onClick={(e) => handleIncreaseQuantity(product)}>
-                      +
-                    </button>
+                  <div>
+                    <p className="cart-item-name">{product.name}</p>
+                    <p className="cart-item-description">
+                      {product.description}
+                    </p>
+                    <p className="cart-item-price">
+                      ₹{product.price * product.qty}
+                    </p>
+                    <div className="cart-item-qty">
+                      <button
+                        onClick={(e) => {
+                          if (product?.qty > 1) {
+                            handleReduceQuantity(product);
+                          }
+                        }}
+                        disabled={product?.qty > 1 ? false : true}
+                      >
+                        -
+                      </button>{" "}
+                      {product?.qty}{" "}
+                      <button onClick={(e) => handleIncreaseQuantity(product)}>
+                        +
+                      </button>
+                    </div>
                   </div>
                   <div className="cart-btn-container">
                     <button
@@ -211,11 +215,11 @@ const Cart = () => {
         </div>
       ) : (
         <div className="empty-cart">
-          <h1>Your cart is empty!😞</h1>
+          <h1>Your bag is empty!😞</h1>
           <div>
             <p>"Empty canvas, endless possibilities."</p>
             <p>
-              Let your imagination soar as you fill your cart with our
+              Let your imagination soar as you fill your bag with our
               extraordinary collection.
             </p>
           </div>

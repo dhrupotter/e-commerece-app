@@ -13,6 +13,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getWishlistProductsService } from "../../services/wishlist.service";
 
+import "./Wishlist.css";
+
 const Wishlist = () => {
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
@@ -72,43 +74,60 @@ const Wishlist = () => {
   return (
     <div>
       <h2>Your Wishlist ({wishlist?.length})</h2>
-      <div>
-        {wishlist?.map((product) => (
-          <div className="product-card">
-            <li key={product._id}>
-              <Link key={product._id} to={`/products/${product._id}`}>
-                <div className="product-img-container">
-                  <img
-                    src={product.img}
-                    atl={product.name}
-                    className="product-img"
-                  ></img>
+      {cart.length !== 0 ? (
+        <div className="wishlist-container">
+          {wishlist?.map((product) => (
+            <div className="product-card">
+              <li key={product._id}>
+                <Link key={product._id} to={`/products/${product._id}`}>
+                  <div className="product-img-container">
+                    <img
+                      src={product.img}
+                      atl={product.name}
+                      className="product-img"
+                    ></img>
+                  </div>
+                </Link>
+                <div className="product-card-details">
+                  <p className="product-name">{product.name}</p>
+                  <p className="product-price">₹{product.price}</p>
+                  <p className="product-name">{product.desription}</p>
+                  <div className="wishlist-btn-container">
+                    <button
+                      className="wishlist-btn"
+                      onClick={() => handleRemoveFromWishlist(product._id)}
+                    >
+                      Remove from Wishlist
+                    </button>
+                    <button
+                      className="wishlist-btn2"
+                      onClick={() => handleAddProductToCart(product)}
+                    >
+                      {getIsProductInCart(cart, product._id)
+                        ? "View in Cart"
+                        : " Add to Cart"}
+                    </button>
+                  </div>
                 </div>
-              </Link>
-              <div className="product-card-details">
-                <p className="product-name">{product.name}</p>
-                <p className="product-price">₹{product.price}</p>
-                <p className="product-name">{product.desription}</p>
-
-                <button
-                  className="cart-btn"
-                  onClick={() => handleRemoveFromWishlist(product._id)}
-                >
-                  Remove from Wishlist
-                </button>
-                <button
-                  className="cart-btn"
-                  onClick={() => handleAddProductToCart(product)}
-                >
-                  {getIsProductInCart(cart, product._id)
-                    ? "View in Cart"
-                    : " Add to Cart"}
-                </button>
-              </div>
-            </li>
+              </li>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="empty-cart">
+          <h1>Your wishlist is empty!😞</h1>
+          <div>
+            <p>"Empty canvas, endless possibilities."</p>
+            <p>
+              Let your imagination soar as you fill your wishlist with our
+              extraordinary collection.
+            </p>
           </div>
-        ))}
-      </div>
+          <button className="shop-now" onClick={() => navigate("/products")}>
+            Shop Now
+          </button>
+        </div>
+      )}
     </div>
   );
 };

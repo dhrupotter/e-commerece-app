@@ -1,19 +1,24 @@
 .product-list-section {
   position: absolute;
-  right: 0px;
+  right: 15px;
   width: 80%;
 }
 
 .sidebar-section {
   position: absolute;
-  left: 0px;
+  left: 25px;
   width: 20%;
   padding: 20px;
+  text-align: left;
+}
+
+.sidebar-section h3 {
+  color: var(--secondary-color);
 }
 
 .category-checkbox {
   text-align: left;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
 }
 
 .product-list {
@@ -25,17 +30,26 @@
   padding: 20px;
 }
 
+.btn-container {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+
 .product-name {
   margin: 0px 10px;
-  font-size: 22px;
+  font-size: 20px;
   text-align: left;
+  line-height: 1;
   font-weight: bold;
 }
 
 .product-price {
-  margin: 0px 10px;
-  font-size: 20px;
+  margin: 5px 0px;
+  color: var(--primary-color);
+  font-size: 18px;
   text-align: left;
+  line-height: 1;
 }
 
 .product-card {
@@ -46,6 +60,7 @@
   padding: 5px;
   border-radius: 5px;
   width: 300px;
+  height: 395px;
   position: relative;
   cursor: pointer;
 }
@@ -55,10 +70,77 @@
   transition: 0.3s;
 }
 
+.product-details {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card-details {
+  margin: 5px 10px 0px 10px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .product-img {
   border-radius: 5px;
   margin: 10px;
   width: 280px;
   height: 280px;
   object-fit: cover;
+}
+
+.product-card-wishlist-btn {
+  margin: 4px 0px 0px 0px;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 24px;
+}
+
+.product-card-cart-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 5px 8px 5px 4px;
+  font-size: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.product-card-cart-btn2 {
+  background-color: transparent;
+  color: var(--secondary-color);
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+}
+
+.price-range {
+  accent-color: var(--secondary-color);
+}
+
+.sidebar-text {
+  margin: 5px 0px;
+  color: var(--primary-color);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.clear-filter-btn {
+  margin: 0px;
+  padding: 0px 10px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 18px;
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
 }
