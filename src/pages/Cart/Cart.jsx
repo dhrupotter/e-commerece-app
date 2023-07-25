@@ -39,7 +39,9 @@ const Cart = () => {
         ...prev,
         user: { ...prev.user, cart: res.data.cart },
       }));
-      toast.success("Item removed from cart");
+      toast.success("Item removed from cart", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -64,7 +66,9 @@ const Cart = () => {
             wishlist: res.data.wishlist,
           },
         }));
-        toast.success("Item added to Wishlist");
+        toast.success("Item moved to Wishlist", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
       }
     } catch (error) {
       console.error(error);

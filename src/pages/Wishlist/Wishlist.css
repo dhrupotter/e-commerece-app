@@ -1,22 +1,37 @@
 .wishlist-container {
   display: flex;
   justify-content: space-evenly;
+  width: 60%;
+  margin: 0px auto;
   flex-wrap: wrap;
   gap: 3rem 0rem;
   list-style: none;
   padding: 20px;
 }
 
+.wishlist-card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+}
+.wishlist-card-details .product-price {
+  margin: 0px 10px;
+}
+.wishlist-product-details {
+  display: flex;
+  justify-content: space-between;
+}
+
 .wishlist-btn-container {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
   margin: 5px 10px;
 }
 
 .wishlist-btn {
   background-color: var(--secondary-color);
   color: white;
-  /* margin: 5px 10px; */
   padding: 10px;
   font-size: 15px;
   border: 1px solid transparent;
@@ -26,7 +41,6 @@
 .wishlist-btn2 {
   background-color: transparent;
   color: var(--secondary-color);
-  /* margin: 5px 10px; */
   padding: 10px;
   font-size: 15px;
   border: 1px solid var(--secondary-color);

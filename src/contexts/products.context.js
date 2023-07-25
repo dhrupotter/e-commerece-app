@@ -6,13 +6,17 @@ const ProductsContext = createContext([]);
 
 export const ProductsProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getAllProducts = async () => {
     try {
+      setIsLoading(true);
       const res = await getAllProductsService();
       setAllProducts(res.data.products);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -20,8 +24,12 @@ export const ProductsProvider = ({ children }) => {
     getAllProducts();
   }, []);
 
+  console.log(isLoading);
+
   return (
-    <ProductsContext.Provider value={{ allProducts, setAllProducts }}>
+    <ProductsContext.Provider
+      value={{ allProducts, setAllProducts, isProductsLoading: isLoading }}
+    >
       {children}
     </ProductsContext.Provider>
   );

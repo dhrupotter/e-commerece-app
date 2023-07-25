@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import Login from "./components/Login/Login";
 import Checkout from "./pages/Checkout/Checkout";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer autoClose={1000} />
     </div>
   );
 }

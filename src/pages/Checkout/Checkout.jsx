@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
 
 import "./Checkout.css";
 import { AddressForm } from "../../utils/Address/AddressForm";
@@ -14,6 +15,7 @@ const Checkout = () => {
       `addresses`,
       JSON.stringify([
         {
+          id: uuid(),
           recieverName: "Dhruvi Gandhi",
           addr1: "A/501, Manila Towers",
           addr2: "Bodakdev",
@@ -24,7 +26,10 @@ const Checkout = () => {
         },
       ])
     );
-    setAddresses(JSON.parse(localStorage.getItem("addresses")) || []);
+    const storedAddresses = JSON.parse(localStorage.getItem("addresses"));
+    const firstAddress = storedAddresses.length > 0 ? storedAddresses[0] : [];
+    setAddresses(storedAddresses || []);
+    setSelectedAddress(firstAddress);
   }, []);
 
   const handleDeleteAddress = (addrId) => {
@@ -37,38 +42,41 @@ const Checkout = () => {
     <>
       <div className="checkout">
         <div className="address-details">
-          {addresses?.map((addr) => (
-            <div className="address">
-              <div className="address-heading">
-                <label>
-                  <input
-                    type="radio"
-                    checked={addr.id === selectedAddress.id}
-                    onChange={() =>
-                      setSelectedAddress(
-                        addresses.find((address) => address.id === addr.id)
-                      )
-                    }
-                  />
-                  <strong>{addr.recieverName}</strong>
-                </label>{" "}
-                <button onClick={(e) => handleDeleteAddress(addr.id)}>
-                  Delete
-                </button>
+          {addresses?.map((addr) => {
+            console.log(selectedAddress, addr);
+            return (
+              <div className="address">
+                <div className="address-heading">
+                  <label>
+                    <input
+                      type="radio"
+                      checked={addr.id === selectedAddress.id}
+                      onChange={() =>
+                        setSelectedAddress(
+                          addresses.find((address) => address.id === addr.id)
+                        )
+                      }
+                    />
+                    <strong>{addr.recieverName}</strong>
+                  </label>{" "}
+                  <button onClick={(e) => handleDeleteAddress(addr.id)}>
+                    Delete
+                  </button>
+                </div>
+                <p>
+                  {addr.addr1}, {addr.addr2}
+                </p>
+                <p>
+                  {addr.city} - {addr.pinCode}
+                </p>
+                <p>
+                  <b>Contact: </b>
+                  {addr.contact}
+                </p>
+                <hr />
               </div>
-              <p>
-                {addr.addr1}, {addr.addr2}
-              </p>
-              <p>
-                {addr.city} - {addr.pinCode}
-              </p>
-              <p>
-                <b>Contact: </b>
-                {addr.contact}
-              </p>
-              <hr />
-            </div>
-          ))}
+            );
+          })}
           <button onClick={() => setToggleForm(true)} className="add-address">
             Add new address
           </button>

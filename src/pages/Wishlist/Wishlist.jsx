@@ -42,7 +42,9 @@ const Wishlist = () => {
         ...prev,
         user: { ...prev.user, wishlist: res.data.wishlist },
       }));
-      toast.success("Item removed from wishlist");
+      toast.success("Item removed from wishlist", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -59,14 +61,18 @@ const Wishlist = () => {
           user: { ...prev.user, cart: res.data.cart },
         }));
 
-        toast.success("Item added to Cart");
+        toast.success("Item added to Cart", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
       }
     } else {
-      toast.error("Please login to continue");
+      toast.error("Please login to continue", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
       navigate("/login");
     }
   };
-
+  console.log(wishlist);
   useEffect(() => {
     getWishlistProducts();
   }, []);
@@ -74,7 +80,7 @@ const Wishlist = () => {
   return (
     <div>
       <h2>Your Wishlist ({wishlist?.length})</h2>
-      {cart.length !== 0 ? (
+      {wishlist.length !== 0 ? (
         <div className="wishlist-container">
           {wishlist?.map((product) => (
             <div className="product-card">
@@ -88,9 +94,12 @@ const Wishlist = () => {
                     ></img>
                   </div>
                 </Link>
-                <div className="product-card-details">
-                  <p className="product-name">{product.name}</p>
-                  <p className="product-price">₹{product.price}</p>
+                <div className="wishlist-card-details">
+                  <div className="wishlist-product-details">
+                    <p className="product-name">{product.name}</p>
+                    <p className="product-price">₹{product.price}</p>
+                  </div>
+
                   <p className="product-name">{product.desription}</p>
                   <div className="wishlist-btn-container">
                     <button
