@@ -1,0 +1,58 @@
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: auto;
+}
+.address-details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: max-content;
+  padding: 10px;
+  color: var(--secondary-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.address-details p {
+  margin: 5px 20px;
+}
+
+.address-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-details input {
+  accent-color: var(--secondary-color);
+}
+
+.address-details button {
+  border: 1px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 5px 8px;
+}
+
+.address-details .add-address {
+  border: 1px solid transparent;
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.address {
+  text-align: left;
+}
+
+.checkout-bill-section {
+  width: 35%;
+  height: max-content;
+  padding: 10px;
+  color: var(--secondary-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}

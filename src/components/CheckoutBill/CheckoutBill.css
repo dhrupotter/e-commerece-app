@@ -1,0 +1,17 @@
+.order-details {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0px auto;
+}
+
+.order-details p {
+  margin: 4px 0px;
+}
+.order-details div p:first-child {
+  font-weight: bold;
+}
+
+.checkout-bill hr {
+  margin: 0px;
+}

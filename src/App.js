@@ -1,7 +1,7 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import Signup from "./components/Signup/Signup";
-import Auth, { RequiresAuth } from "./pages/Auth/Auth";
+import { RequiresAuth } from "./pages/Auth/Auth";
 import Cart from "./pages/Cart/Cart";
 import { Home } from "./pages/Home/Home";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";

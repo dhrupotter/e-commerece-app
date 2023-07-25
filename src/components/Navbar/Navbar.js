@@ -24,12 +24,13 @@ export const Navbar = () => {
         <img src={logo}></img>
         <h1 onClick={() => navigate("/")}>MessyHands</h1>
       </div>
-
-      {user.user !== null ? (
-        <>Hello, {user.user.firstName}</>
-      ) : (
-        <>Hello Guest!</>
-      )}
+      <div className="hello-user">
+        {user.user !== null ? (
+          <>Hello, {user.user.firstName}</>
+        ) : (
+          <>Hello Guest!</>
+        )}
+      </div>
 
       {user.user === null ? (
         <ul className="nav-list">
@@ -52,9 +53,9 @@ export const Navbar = () => {
       ) : (
         <ul className="nav-list">
           <li>
-            {/* <NavLink to={"/products"} className="nav-tab ">
+            <NavLink to={"/products"} className="nav-tab ">
               Explore
-            </NavLink> */}
+            </NavLink>
           </li>
           <li>
             <NavLink to={"/"} className="nav-tab">

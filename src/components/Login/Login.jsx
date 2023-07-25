@@ -13,8 +13,8 @@ const Login = () => {
   });
 
   const guestUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "dhruvigandhi@gmail.com",
+    password: "dhruvi1234",
   };
 
   const handleLoginDetails = (e) => {

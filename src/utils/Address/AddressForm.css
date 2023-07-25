@@ -1,0 +1,41 @@
+.address-from-page {
+  background: #0f09107a;
+  width: 100vw;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.address-form {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+}
+
+.form-input input {
+  padding: 8px;
+  margin: 5px 0px;
+  outline: none;
+  font-size: 18;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  line-height: 1;
+  width: 60%;
+}
+
+.form-btn {
+  background-color: var(--primary-color);
+  color: white;
+  margin: 10px 10px;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 18px;
+}

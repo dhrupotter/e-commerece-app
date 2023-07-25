@@ -1,37 +1,89 @@
 import React, { useEffect, useState } from "react";
-import { AddressForm } from "./AddressForm";
+
+import "./Checkout.css";
+import { AddressForm } from "../../utils/Address/AddressForm";
+import CheckoutBill from "../../components/CheckoutBill/CheckoutBill";
 
 const Checkout = () => {
   const [toggleForm, setToggleForm] = useState(false);
   const [addresses, setAddresses] = useState([]);
-
+  const [selectedAddress, setSelectedAddress] = useState([]);
   useEffect(() => {
     // addresses -> get
-    console.log(localStorage.getItem("addresses"));
+    localStorage.setItem(
+      `addresses`,
+      JSON.stringify([
+        {
+          recieverName: "Dhruvi Gandhi",
+          addr1: "A/501, Manila Towers",
+          addr2: "Bodakdev",
+          city: "Ahmedabad",
+          state: "Gujarat",
+          pinCode: "380015",
+          contact: "6354609690",
+        },
+      ])
+    );
     setAddresses(JSON.parse(localStorage.getItem("addresses")) || []);
   }, []);
-
-  console.log(addresses);
 
   const handleDeleteAddress = (addrId) => {
     const filteredAddresses = addresses.filter((addr) => addr.id !== addrId);
     setAddresses(filteredAddresses);
     localStorage.setItem(`addresses`, JSON.stringify(filteredAddresses));
   };
+
   return (
     <>
-      <div>
-        <button onClick={() => setToggleForm(true)}>Add new address</button>
+      <div className="checkout">
+        <div className="address-details">
+          {addresses?.map((addr) => (
+            <div className="address">
+              <div className="address-heading">
+                <label>
+                  <input
+                    type="radio"
+                    checked={addr.id === selectedAddress.id}
+                    onChange={() =>
+                      setSelectedAddress(
+                        addresses.find((address) => address.id === addr.id)
+                      )
+                    }
+                  />
+                  <strong>{addr.recieverName}</strong>
+                </label>{" "}
+                <button onClick={(e) => handleDeleteAddress(addr.id)}>
+                  Delete
+                </button>
+              </div>
+              <p>
+                {addr.addr1}, {addr.addr2}
+              </p>
+              <p>
+                {addr.city} - {addr.pinCode}
+              </p>
+              <p>
+                <b>Contact: </b>
+                {addr.contact}
+              </p>
+              <hr />
+            </div>
+          ))}
+          <button onClick={() => setToggleForm(true)} className="add-address">
+            Add new address
+          </button>
+        </div>
+        <div className="checkout-bill-section">
+          <CheckoutBill addr={selectedAddress} />
+        </div>
       </div>
       {toggleForm && (
-        <AddressForm addresses={addresses} setAddresses={setAddresses} />
+        <AddressForm
+          addresses={addresses}
+          setAddresses={setAddresses}
+          setToggleForm={setToggleForm}
+        />
       )}
-      {addresses?.map((addr) => (
-        <div>
-          {addr.contact}{" "}
-          <button onClick={(e) => handleDeleteAddress(addr.id)}>Delete</button>
-        </div>
-      ))}
     </>
   );
 };
