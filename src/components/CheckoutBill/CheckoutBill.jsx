@@ -1,8 +1,10 @@
 import React from "react";
 import { useAuth } from "../../contexts/auth.context";
 import "./CheckoutBill.css";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutBill = ({ addr }) => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const cart = user.user.cart;
 
@@ -11,6 +13,7 @@ const CheckoutBill = ({ addr }) => {
   const totalPrice = cartItemPrices.reduce((acc, curr) => acc + curr, 0);
   const shippingCharges = totalPrice - totalDiscount < 999 ? 50 : 0;
   const totalBillAmount = totalPrice - totalDiscount + shippingCharges;
+
   return (
     <div className="checkout-bill">
       <hr />
@@ -70,7 +73,9 @@ const CheckoutBill = ({ addr }) => {
         {addr.contact}
       </p>
       <hr />
-      <button className="checkout-btn">Place Order</button>
+      <button className="checkout-btn" onClick={() => navigate("/orderPlaced")}>
+        Place Order
+      </button>
     </div>
   );
 };

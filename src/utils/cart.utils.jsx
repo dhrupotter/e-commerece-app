@@ -1,5 +1,3 @@
-// import { Toast } from "react-toastify/dist/components";
-// import { useAuth } from "../contexts/auth.context";
 import axios from "axios";
 
 const addProductToCart = async (product, encodedToken) => {
